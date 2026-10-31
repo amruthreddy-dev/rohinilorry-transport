@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+.font-telugu {
+  font-family: 'Noto Sans Telugu', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Moving Information Ticker Animations */
+@keyframes ticker-scroll-slow {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ticker-scroll-medium {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ticker-scroll-fast {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker-1 {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll-slow 32s linear infinite;
+}
+
+.animate-ticker-2 {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll-fast 22s linear infinite;
+}
+
+.animate-ticker-3 {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll-medium 27s linear infinite;
+}
+
+.ticker-container:hover .animate-ticker-1,
+.ticker-container:hover .animate-ticker-2,
+.ticker-container:hover .animate-ticker-3 {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker-1,
+  .animate-ticker-2,
+  .animate-ticker-3 {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Subtle moving road line animation */
+@keyframes road-dash-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -60px 0;
+  }
+}
+
+.road-line-moving {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #fbbf24 0,
+    #fbbf24 24px,
+    transparent 24px,
+    transparent 48px
+  );
+  animation: road-dash-move 1.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .road-line-moving {
+    animation: none;
+  }
+}
